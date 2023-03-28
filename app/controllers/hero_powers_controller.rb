@@ -5,7 +5,7 @@ class HeroPowersController < ApplicationController
     def create
         heropower = HeroPower.create!(hero_params)
         if heropower
-            render json: hero, include: :powers, status: :created
+            render json: heropower, status: :created
         else 
             render json: {"errors": ["validation errors"]}
         end
