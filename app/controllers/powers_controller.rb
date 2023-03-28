@@ -9,7 +9,7 @@ class PowersController < ApplicationController
         if power
             render json: power
         else 
-            render json: {"error": "Power not found"}
+            render json: {"error": "Power not found"}, status: :not_found
         end
     end
 
