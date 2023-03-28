@@ -9,7 +9,7 @@ class PowersController < ApplicationController
     def show
         power = Power.find(params[:id])
         if power
-            render json: power.to_json(except: [:heros, :hero_powers])
+            render json: power.to_json(only: [:id, :name, :description])
         else 
             render json: {"error": "Power not found"}, status: :not_found
         end
