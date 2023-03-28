@@ -16,10 +16,17 @@ class PowersController < ApplicationController
     def update
         power = Power.find(params[:id])
         if power
-            power.update(name: params[:name], description: params[:description])
+            power.update(power_params)
             render json: power
         else
             render json: {"error": "Power not found"}
         end
     end
+
+    private
+
+    def power_params
+        params.permit(name: params[:name], description: params[:description])
+    end
+
 end
